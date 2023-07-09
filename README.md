@@ -2,7 +2,8 @@
 
 Create blog post with image banner with OpenAi &amp; Nodejs
 
-Install Tailwind CSS
+#### Install Tailwind CSS
+
 Install tailwindcss and its peer dependencies via npm, and then run the init command to generate both tailwind.config.js and postcss.config.js.
 
 ```
@@ -10,7 +11,8 @@ Install tailwindcss and its peer dependencies via npm, and then run the init com
 > npx tailwindcss init -p
 ```
 
-Configure your template paths
+#### Configure your template paths
+
 Add the paths to all of your template files in your tailwind.config.js file.
 
 ```
