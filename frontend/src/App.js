@@ -1,3 +1,4 @@
+import Image from './components/images/Image';
 import './styles/Global.css';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
       <header className="text-center p-10 m-10 text-3xl">
         <p>
           hello OpenAi and React :)
+          <Image />
         </p>
       </header>
     </div>
