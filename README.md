@@ -4,14 +4,16 @@ Create blog post with image banner with OpenAi &amp; Nodejs
 
 #### how to get app up and running on your local computer
 
-<strong>Clone or download this git repository to you computer</strong>
+Clone or download this git repository to you computer
 
 ```
-    git clone https://github.com/psinthorn/openaix.git
+git clone https://github.com/psinthorn/openaix.git
 ```
 
-<strong>install all dependencies and start services</strong>
-<strong>Backend service</strong>
+install all dependencies and start services
+<b>Backend service</b>
+
+access to backend servicer folder
 
 ```
 cd openaix/api/openai
@@ -31,7 +33,7 @@ npm run dev
 
 you should see system running on port 5000
 
-<strong>Frontend service</strong>
+<b>Frontend service</b>
 cd to openaix/frontend folder
 
 ```
@@ -47,6 +49,8 @@ to start backend run command
 npm run start
 
 ```
+now you should see frontend up and running on port 3000
+
 
 #### Install Tailwind CSS
 
