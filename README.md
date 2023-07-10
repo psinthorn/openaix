@@ -11,6 +11,7 @@ git clone https://github.com/psinthorn/openaix.git
 ```
 
 install all dependencies and start services
+
 <b>Backend service</b>
 
 access to backend servicer folder
@@ -34,6 +35,7 @@ npm run dev
 you should see system running on port 5000
 
 <b>Frontend service</b>
+
 cd to openaix/frontend folder
 
 ```
@@ -43,6 +45,7 @@ run commmand to install dependencies using npm command
 npm install
 
 ```
+
 to start backend run command
 ```
 
