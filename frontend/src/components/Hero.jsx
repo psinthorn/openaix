@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <header className='flex flex-col  w-full justify-center items-center'>
       <nav className='flex justify-between items-center w-full mb-10 pt-3'>
-      <label className='text-xl font-bold orange_gradient'><FontAwesomeIcon icon={faCheckSquare} /> OpenAI<span class="text-gray-600">x*</span></label>
+      <label className='text-xl font-bold orange_gradient'><FontAwesomeIcon icon={faCheckSquare} /> OpenAI<span className="text-gray-600">x*</span></label>
         <button type="button" className='black_btn'>
           Login
         </button>
