@@ -1,37 +1,43 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const options = {
-  method: 'GET',
-  url: 'https://article-extractor-and-summarizer.p.rapidapi.com/summarize',
-  params: {
-    url: 'https://time.com/6266679/musk-ai-open-letter/',
-    length: '3'
-  },
-  headers: {
-    'X-RapidAPI-Key': 'ab4564c842msh37648cd1ae99d96p1e0afcjsne6b42cfc7642',
-    'X-RapidAPI-Host': 'article-extractor-and-summarizer.p.rapidapi.com'
-  }
-};
+// export const articleApi = createApi({
+//     reducerPath: 'articleApi',
+//     baseQuery: fetchBaseQuery({
+//         baseUrl: 'https://article-extractor-and-summarizer.p.rapidapi.com/',
+//         prepareHeaders: (headers) => {
+//             headers.set('X-RapidAPI-Key', process.env.REACT_APP_RAPID_API_KEY);
+//             headers.set('X-RapidAPI-Host', process.env.REACT_APP_RAPID_API_HOST);
 
-try {
-	// const response = await axios.request(options);
-	// console.log(response.data);
-} catch (error) {
-	console.error(error);
-}
+//             return headers;
+//         },
+//     }),
+//     endpoints: (builder) => ({
+//         getSummary: builder.query({
+//             // encodeURIComponent() function encodes special characters that may be present in the parameter values
+//             // If we do not properly encode these characters, they can be misinterpreted by the server and cause errors or unexpected behavior. Thus that RTK bug
+//             query: (params) => `summarize?url=${encodeURIComponent(params.articleUrl)}&length=3`,
+//         }),
+//     }),
+// })
+
+// export const { useLazyGetSummaryQuery } = articleApi
 
 export const articleApi = createApi({
   reducerPath: 'articleApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://article-extractor-and-summarizer.p.rapidapi.com/',
     prepareHeaders: (headers) => {
-      headers.set('X-RapidAPI-Key', process.env.RAPID_API_KEY);
-      headers.set('X-RapidAPI-Host', process.env.RAPID_API_HOST);
+      headers.set('X-RapidAPI-Key', process.env.REACT_APP_RAPID_API_KEY);
+      headers.set('X-RapidAPI-Host', process.env.REACT_APP_RAPID_API_HOST);
+
+      return headers;
     }
   }),
   endpoints: (builder) => ({
     getSummary: builder.query({
-      query: (params) => `test`,
+      query: (params) => `summarize?url=${encodeURIComponent(params.articleUrl)}&length=3`, 
     })
   })
 });
+
+export const { useLazyGetSummaryQuery } = articleApi;
