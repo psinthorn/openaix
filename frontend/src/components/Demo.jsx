@@ -1,23 +1,35 @@
-import { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleRight, faCheckSquare,faCoffee, faEye, faLink, faList, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight, faCheckSquare,faCoffee, faEye, faLink, faList, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useLazyGetSummaryQuery } from '../services/article';
 
 const Demo = () => {
-  const [post, setPost] = useState({
+  const [article, setArticle] = useState({
     url: '',
-    Summary: '',
+    summary: '',
   })
+
+  const [getSummary, {error, isFetching}] = useLazyGetSummaryQuery();
 
   const handleOnChange = (event) => {
     event.preventDefault();
-    setPost({ ...post, url: event.target.value})
+    console.log(article.url);
+    setArticle({ ...article, url: event.target.value})
     console.log(event.target.value);
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // fetch post to api url and get response back 
-    console.log("submit");
+    console.log(article.url);
+    const { data } = await getSummary({ articleUrl: article.url });
+    console.log('data:' ,data);
+
+    if(data?.summary){
+      const newArticle = {...article, summary: data.summary}
+      setArticle(newArticle);
+      console.log(article);
+    }
+    
   }
 
   return (
@@ -31,7 +43,7 @@ const Demo = () => {
           <input 
             type="url"
             placeholder='Enter a URL'
-            value={post.url}
+            value={article.url}
             onChange={handleOnChange}
             required
             className='url_input peer ml-1'
