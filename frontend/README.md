@@ -68,12 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-#### How to use .env file with create-react-app
-
-if you need to use .env file with create-react-app you need to put REACT*APP* in front of your custom variable name example
-
-```
-REACT_APP_API_KEY = 1234567890asdfghh
-REACT_APP_API_HOST = api.host.com
-```
