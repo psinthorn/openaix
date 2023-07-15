@@ -84,6 +84,30 @@ const Demo = () => {
               </div>
             ))}
           </div>
+          {/* display summarizer result */}
+          <div className='flex justify-center items-center max-w-full my-10'>
+              {isFetching ? (<img className='w-20 h-20 object-contain' />) : error ? (
+                <p className='font-inter font-bold text-red-500 text-center'>Can't summarize you given URL please try another website
+                  <br />
+                  <span className='font-satosho font-normal font-gray-700'>
+                    {error?.data?.error}
+                  </span>
+              </p>
+              ) : (
+                article.summary && (
+                  <div className='flex flex-col gap-3'>
+                    <h2 className='font-satoshi font-bold text-gray-700 text-xl'>
+                      Article <span className='blue_gradient'>Summary</span>
+                    </h2>
+                    <div className='summary_box'>
+                      <p className='font-inter font-meduim text-sm text-gray-700'>
+                        {article.summary}
+                      </p>
+                    </div>
+                  </div>
+                )
+              )}
+          </div>
       </div>        
     </section>
   )

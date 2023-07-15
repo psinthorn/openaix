@@ -4,7 +4,7 @@ import { faAngleRight, faCheckSquare,faCoffee } from '@fortawesome/free-solid-sv
 const Navbar = () => {
   return (
     <nav className='flex justify-between items-center w-full mb-10 pt-3'>
-      <label className='text-xl font-bold orange_gradient'><FontAwesomeIcon icon={faCheckSquare} /> OpenAI<span className="text-gray-600">x*</span></label>
+      <label className='text-xl font-bold orange_gradient'><FontAwesomeIcon icon={faCheckSquare} /> F2x<span className="text-gray-600">AI</span></label>
         <div className="flex gap-4">
           <div className='pt-1 black_btn rounded-none bg-transparent'>Get an Ideas</div>
           <div className='pt-1 black_btn rounded-none bg-transparent'>Generate an Image</div>
