@@ -1,9 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faAngleRight, faCheckSquare,faCoffee, faEye, faLink, faList, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faEye, faLink, } from '@fortawesome/free-solid-svg-icons';
 import { useLazyGetSummaryQuery } from '../services/article';
 import './../styles/Globals.css';
+import { ReactComponent as Copy } from './../assets/copy.svg';
+import { ReactComponent as Tick } from './../assets/tick.svg'
+import { ReactComponent as Loader } from './../assets/loader.svg';
+
+
+//import { ReactComponent as copyIcon } from '../assets/copy.svg'
+
 
 const Demo = () => {
   const [article, setArticle] = useState({
@@ -11,13 +18,21 @@ const Demo = () => {
     summary: '',
   })
   const [articles, setArticles] = useState([]);
+  const [copied, setCopied] = useState(true);
 
   const [getSummary, {error, isFetching}] = useLazyGetSummaryQuery();
 
   const handleOnChange = (event) => {
     event.preventDefault();
     setArticle({ ...article, url: event.target.value})
-  }
+  };
+
+  const handleCopy = (copyUrl) => {
+    setCopied(copyUrl)
+    navigator.clipboard.writeText(copyUrl)
+    console.log(copied);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -71,12 +86,10 @@ const Demo = () => {
               onClick={() => setArticle(article)}
               className='link_card'
               >
-                <div className='copy_btn'>
-                  <img
-                    src={''}
-                    alt='copy icon'
-                    className='object-contain w-[40%] h-[40%]'
-                  />
+                <div className='copy_btn' onClick={() => (handleCopy(article.url))}>
+                  <div className='object-contain w-[40%] h-[40%]'>
+                    {copied === article.url ? (<Tick />) : (<Copy />) }                   
+                  </div>
                 </div>
                 <p className='flex-1 font-medium font-satoshi text-sm text-blue-500 truncate '>
                   {article.url}
@@ -86,7 +99,7 @@ const Demo = () => {
           </div>
           {/* display summarizer result */}
           <div className='flex justify-center items-center max-w-full my-10'>
-              {isFetching ? (<img className='w-20 h-20 object-contain' />) : error ? (
+              {isFetching ? (<Loader />) : error ? (
                 <p className='font-inter font-bold text-red-500 text-center'>Can't summarize you given URL please try another website
                   <br />
                   <span className='font-satosho font-normal font-gray-700'>
@@ -96,12 +109,13 @@ const Demo = () => {
               ) : (
                 article.summary && (
                   <div className='flex flex-col gap-3'>
-                    <h2 className='font-satoshi font-bold text-gray-700 text-xl'>
+                    <h2 className='font-satoshi font-bold text-gray-700 text-xl text-center'>
                       Article <span className='blue_gradient'>Summary</span>
                     </h2>
                     <div className='summary_box'>
                       <p className='font-inter font-meduim text-sm text-gray-700'>
                         {article.summary}
+                        
                       </p>
                     </div>
                   </div>

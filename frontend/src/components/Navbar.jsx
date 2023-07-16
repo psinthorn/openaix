@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleRight, faCheckSquare,faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare  } from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
   return (
