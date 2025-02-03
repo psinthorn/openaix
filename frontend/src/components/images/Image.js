@@ -9,7 +9,7 @@ const Image = () => {
 
   return (
     <div>
-      <h1>hello React and OpenAi :)</h1>
+      <h1>f2coltd@gmail.com</h1>
     </div>
   )
 }

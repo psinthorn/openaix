@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <header className='flex flex-col  w-full justify-center items-center'>
       <Navbar />
-      <h1 className='head_text'>Powering the Future with AI, IoT & Cloud Innovation
+      <h1 className='head_text py-32'>Powering the Future with AI, IoT & Cloud Innovation
         <br className='max-md:hidden'/>
         <span className="orange_gradient">Innovate. Automate. Elevate.</span>
       </h1>
